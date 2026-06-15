@@ -62,10 +62,10 @@ app.use((err, req, res, next) => {
 });
 
 // Start Server
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`==================================================`);
   console.log(`  English Speaking Coach AI Backend running!`);
-  console.log(`  Port: http://localhost:${PORT}`);
+  console.log(`  Port: http://localhost:${PORT} (Bound to 0.0.0.0)`);
   console.log(`  Environment: ${process.env.NODE_ENV || 'development'}`);
   console.log(`==================================================`);
 });
