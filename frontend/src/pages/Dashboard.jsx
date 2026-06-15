@@ -3,7 +3,7 @@ import { api } from '../utils/api';
 import {
   Mic, BookOpen, Flame, MessageSquare, BarChart2, TrendingUp,
   Target, Zap, CheckCircle, Clock, Star, Award, AlertCircle,
-  ChevronRight, X, Volume2, PenLine, Bell, Trophy, Shield
+  ChevronRight, X, Volume2, PenLine, Bell, Trophy, Shield, Sparkles
 } from 'lucide-react';
 
 const formatTime = (ms) => {

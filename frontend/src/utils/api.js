@@ -1,4 +1,4 @@
-const API_URL = ''; // Proxied automatically by Vite dev server via package config
+const API_URL = `${window.location.protocol}//${window.location.hostname}:5000`; // Dynamic backend host resolution for external device support
 
 const getHeaders = () => {
   const token = localStorage.getItem('token');
