@@ -46,6 +46,23 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
 
+// Root route - redirect to frontend app in development mode
+app.get('/', (req, res) => {
+  if (process.env.NODE_ENV === 'production') {
+    return res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+  }
+  res.send(`
+    <html>
+      <head><title>English Coach AI API</title></head>
+      <body style="font-family: sans-serif; background: #0f172a; color: #f8fafc; display: flex; flex-direction: column; align-items: center; justify-center: center; height: 100vh; margin: 0; text-align: center;">
+        <h1>English Coach AI API Server (Port 5000)</h1>
+        <p>The main web application UI is running on <strong>Port 3000</strong>.</p>
+        <a href="http://localhost:3000" style="display: inline-block; padding: 12px 24px; background: #6366f1; color: white; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 16px;">Open App on Port 3000 &rarr;</a>
+      </body>
+    </html>
+  `);
+});
+
 // Serve static frontend assets in production mode if built
 const __dirname = path.resolve();
 if (process.env.NODE_ENV === 'production') {
